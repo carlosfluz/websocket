@@ -1015,16 +1015,12 @@
         </div>
     </div>
 </body>
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
-    window.Echo.channel('messages')
-        .listen('NewMessageNotification', (event) => {
-            console.log('New message:', event.message);
-        });
-
-    window.Echo.private('private-chat.' + receiverId)
-        .listen('NewPrivateMessageNotification', (event) => {
-            console.log('New private message:', event.message);
-        });
+    Echo.channel('messages')
+        .listen('NewMessage', (e) => {
+            console.log(e.trade);
+        })
 </script>
 
 </html>
