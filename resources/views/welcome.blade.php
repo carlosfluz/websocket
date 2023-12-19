@@ -1015,7 +1015,7 @@
         </div>
     </div>
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
+
 <script>
     Echo.channel('messages')
         .listen('NewMessage', (e) => {
