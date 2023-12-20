@@ -44,8 +44,8 @@ return [
                 // 'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
 
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'encrypted' => true,
-                'host' => '127.0.0.1:8000',
+                // 'encrypted' => true,
+                'host' => '127.0.0.1',
                 'port' => 6001,
                 'scheme' => 'http'
             ],
