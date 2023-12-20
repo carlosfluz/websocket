@@ -828,7 +828,7 @@
             }
         }
     </style>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+   <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body class="antialiased">
