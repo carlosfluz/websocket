@@ -1016,11 +1016,13 @@
     </div>
 </body>
 
-<script>
-    Echo.channel('messages')
-        .listen('NewMessage', (e) => {
+<script type="module">
+   
+    var channel = Echo.channel('messages');
+    channel.listen('NewMessage', (e) => {
             console.log(e.trade);
-        })
+        });
+
 </script>
 
 </html>

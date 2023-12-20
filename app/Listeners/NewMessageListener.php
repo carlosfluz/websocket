@@ -22,7 +22,7 @@ class NewMessageListener
     public function handle(NewMessage $event)
     {
         $receiverId = $event->receiverId;
-        $message = $event->message;
+        $message = $event->messages;
         
         broadcast(new NewPrivateMessageNotification($message))->toOthers();
         broadcast(new NewPrivateMessageNotification($message))->toOthersOn("private-chat.{$receiverId}");
