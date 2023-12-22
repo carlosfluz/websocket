@@ -828,6 +828,7 @@
             }
         }
     </style>
+     <link href="{{ asset('css/adminkit.css') }}" rel="stylesheet">
    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
@@ -843,12 +844,11 @@
                                 <div class="rounded p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-500">Latest trade</h5>
-                                <h1 class="font-bold text-3xl" style="font-size: 7em;">
-                                    
-                                        SENHA: <span id="latest_trade_user"></span>
-                                    
-                                </h1>
+                                <h5 class="font-bold uppercase text-gray-500">Senhas:</h5>
+                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >10</a>
+                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >11</a>
+                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >12</a>
+                       
                             </div>
                         </div>
                     </div>
@@ -856,6 +856,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 
 <script type="module">

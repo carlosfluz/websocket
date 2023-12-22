@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/senhas', function () {
+    return view('senhas');
+});
+
+Route::get("enviar", "App\Http\Controllers\HomeController@enviar")->name("enviar");
