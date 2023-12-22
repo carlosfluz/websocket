@@ -828,8 +828,8 @@
             }
         }
     </style>
-     <link href="{{ asset('css/adminkit.css') }}" rel="stylesheet">
-   <script src="{{ asset('js/app.js') }}"></script>
+    <link href="{{ asset('css/adminkit.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body class="antialiased">
@@ -841,14 +841,18 @@
                     <div class="bg-white border rounded shadow p-2">
                         <div class="flex flex-row items-center">
                             <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i></div>
+                                <div class="rounded p-3 bg-yellow-600"><i
+                                        class="fas fa-user-plus fa-2x fa-fw fa-inverse"></i></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="font-bold uppercase text-gray-500">Senhas:</h5>
-                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >10</a>
-                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >11</a>
-                                <a role="button" href="{{route('enviar')}}" class="btn btn-outline-primary me-2" >12</a>
-                       
+
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('10')">10</a>
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('11')">11</a>
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('12')">12</a>
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('13')">13</a>
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('14')">14</a>
+                                <a role="button" class="btn btn-outline-primary me-2 btn-lg" onclick="enviar('15')">15</a>
                             </div>
                         </div>
                     </div>
@@ -856,17 +860,28 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 
-<script type="module">
-   
+
+
+<script>
+    function enviar(senha) {
+        window.axios.get('enviar/' + senha);
+        // alert('teste');
+
+    }
+
+    // document.querySelector('#submit-button').addEventListener(
+    //     'click',
+    //     () => window.axios.get('enviar/10')
+    // );
+
     var channel = Echo.channel('messages');
     channel.listen('NewMessage', (e) => {
-            console.log(e.message);
-            document.getElementById('latest_trade_user').innerText = e.message;
-        });
-
+        console.log(e.message);
+        document.getElementById('latest_trade_user').innerText = e.message;
+    });
 </script>
 
 </html>

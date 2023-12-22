@@ -21,4 +21,4 @@ Route::get('/senhas', function () {
     return view('senhas');
 });
 
-Route::get("enviar", "App\Http\Controllers\HomeController@enviar")->name("enviar");
+Route::get("enviar/{senha}", "App\Http\Controllers\HomeController@enviar")->name("enviar");
