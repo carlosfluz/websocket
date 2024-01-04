@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agenda', function (Blueprint $table) {
-            $table->id('agenda_id');
+        Schema::create('escala', function (Blueprint $table) {
+            $table->id('escala_id');
             $table->foreignId('profissional_id')->references('profissional_id')->on('profissional');
             $table->foreignId('especialidade_id')->references('especialidade_id')->on('especialidade');
-            $table->date('agenda_data');
+            $table->date('escala_data');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('escala');
     }
 };

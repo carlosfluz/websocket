@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class Escala extends Model
 {
     use HasFactory;
 
-    protected $table = 'agenda';
+    protected $table = 'escala';
 
     protected $fillable = [
-        'agenda_id',
-        'agenda_nome',
-        'agenda_data'
+        'profissional_id',
+        'especialidade_id',
+        'escala_data'
     ];
 
-    protected $primaryKey = 'agenda_id';
+    protected $primaryKey = 'escala_id';
 
     public function profissional(){
         return $this->belongsTo(Profissional::class,'profissional_id', 'profissional_id');
