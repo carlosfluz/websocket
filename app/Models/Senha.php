@@ -18,6 +18,7 @@ class Senha extends Model
 
     protected $fillable = [
         'turno_id',
+        'user_id',
         'senha_nome',
         'senha_tipo',
         'senha_ativa',
@@ -32,30 +33,30 @@ class Senha extends Model
     }
 
     public function salas(){
-        return $this->belongsToMany(Sala::class);
+        return $this->belongsToMany(Sala::class, 'sala_id','sala_id');
     }
 
     public static function senhas_painel(){
 
         return self::whereDate('senha.created_at',date('Y-m-d'))
-                    ->join('senha_setor', function(JoinClause $join){
-                        $join->on('senha.senha_id','=','senha_setor.senha_id')
-                        ->on('senha_setor.senha_setor_id','=',DB::raw('(SELECT MAX(senha_setor_id) FROM senha_setor s WHERE senha_id = senha_setor.senha_id)'));
+                    ->join('sala_senha', function(JoinClause $join){
+                        $join->on('senha.senha_id','=','sala_senha.senha_id')
+                        ->on('sala_senha.sala_senha_id','=',DB::raw('(SELECT MAX(sala_senha_id) FROM sala_senha s WHERE senha_id = sala_senha.senha_id)'));
                     })
                     ->where('senha_ativa',1)
-                    ->where('senha_setor.status',2)->limit(5)->get();
+                    ->where('sala_senha.status',2)->limit(5)->get();
 
     }
 
     public static function senhas_sala(int $setor){
 
         return self::whereDate('senha.created_at',date('Y-m-d'))
-                    ->join('senha_setor', function(JoinClause $join){
-                        $join->on('senha.senha_id','=','senha_setor.senha_id')
-                        ->on('senha_setor.senha_setor_id','=',DB::raw('(SELECT MAX(senha_setor_id) FROM senha_setor s WHERE senha_id = senha_setor.senha_id)'));
+                    ->join('sala_senha', function(JoinClause $join){
+                        $join->on('senha.senha_id','=','sala_senha.senha_id')
+                        ->on('sala_senha.sala_senha_id','=',DB::raw('(SELECT MAX(sala_senha_id) FROM sala_senha s WHERE senha_id = sala_senha.senha_id)'));
                     })
                     ->where('senha_ativa',1)
-                    ->where('senha_setor.status',1)->limit(5)->get();
+                    ->where('sala_senha.status',1)->limit(5)->get();
 
     }
 }

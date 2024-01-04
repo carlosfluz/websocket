@@ -16,8 +16,8 @@ class SalaSenha extends Pivot
     // public static $snakeAttributes = false;
 
     protected $fillable = [
+        'sala_id',
         'senha_id',
-        'setor_id',
         'status',
     ];
 }

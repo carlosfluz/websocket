@@ -22,3 +22,8 @@ Route::get('/senhas', function () {
 });
 
 Route::get("enviar/{senha}", "App\Http\Controllers\HomeController@enviar")->name("enviar");
+
+Route::get('/selecionarsenha', [\App\Http\Controllers\SenhaController::class, "selecionar_senha"])->name('selecionar');
+
+Route::get('/gerarsenha/{senha}', [\App\Http\Controllers\SenhaController::class, "store"])->name('gerar');
+

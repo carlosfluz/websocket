@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('sala_senha', function (Blueprint $table) {
             $table->id('sala_senha_id');
-            $table->foreignId('senha_id')->references('senha_id')->on('senha');
             $table->foreignId('sala_id')->references('sala_id')->on('sala');
+            $table->foreignId('senha_id')->references('senha_id')->on('senha');
             $table->integer('status');
             $table->timestamps();
         });

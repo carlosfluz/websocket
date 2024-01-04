@@ -23,6 +23,6 @@ class Sala extends Model
     // ];
 
     public function senhas(){
-        $this->belongsToMany(Senha::class);
+        $this->belongsToMany(Senha::class, 'senha_id','senha_id');
     }
 }

@@ -24,7 +24,7 @@ class PrivateChat
     }
 
     public function broadcastOn()
-{
-    return new PrivateChannel('private-chat.'.$this->receiverId);
-}
+    {
+        return new PrivateChannel('private-chat.' . $this->receiverId);
+    }
 }
