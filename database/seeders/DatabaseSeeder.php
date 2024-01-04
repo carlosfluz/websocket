@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(EspecialidadeSeeder::class);
+        $this->call(TurnoSeeder::class);
+        $this->call(SalaSeeder::class);
     }
 }
