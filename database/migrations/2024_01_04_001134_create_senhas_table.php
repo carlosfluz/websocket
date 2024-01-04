@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('senha', function (Blueprint $table) {
             $table->id('senha_id');
             $table->foreignId('turno_id')->references('turno_id')->on('turno');
+            $table->foreignId('user_id')->references('user_id')->on('users');
             $table->string('senha_nome');
             $table->integer('senha_tipo');
             $table->integer('senha_ativa');
